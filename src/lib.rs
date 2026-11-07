@@ -8,6 +8,7 @@
 pub mod bsm;
 pub mod error;
 pub mod math;
+pub mod parity;
 pub mod types;
 
 pub use error::{Error, Result};
