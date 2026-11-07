@@ -17,6 +17,12 @@
 //!
 //! Random numbers come from ChaCha8 seeded with a `u64`, so results are
 //! bit-for-bit reproducible across platforms.
+//!
+//! The standard error is estimated from the same samples, so it cannot see
+//! events rarer than about `1 / paths`. A deep in-the-money call whose paths
+//! all finish in the money is linear in `S_T`; the control variate then
+//! removes all sampled variance and reports a near-zero error, even though
+//! the true price still contains a tiny out-of-the-money tail.
 
 use rand::SeedableRng;
 use rand_chacha::ChaCha8Rng;
