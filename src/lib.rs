@@ -4,3 +4,5 @@
 //! Greeks, implied volatility, Cox-Ross-Rubinstein trees for American
 //! exercise, variance-reduced Monte Carlo, and volatility smile fitting.
 #![warn(missing_docs)]
+
+pub mod math;
