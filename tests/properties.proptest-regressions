@@ -1,0 +1,9 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc e3474986ea977e7d4ac5fa6369a282765458bfc1e3ee166fcd960ae174353938 # shrinks to p = OptionParams { spot: 10.0, strike: 4.0, rate: 0.0, dividend: 0.0, vol: 0.09704705475746743, expiry: 3.743832135845665 }, k = Call, seed = 7273792472
+cc 33f0637fc504a8dcd62f33cdfb0662b96a37e15aee37cbcce37f1f6f023f4255 # shrinks to p = OptionParams { spot: 10.0, strike: 4.0, rate: 0.0, dividend: 0.0, vol: 0.03, expiry: 0.01 }, k = Put
+cc e872d25a540c73bb1fb218cf57c9fa3b18b882230c746826ada68318280ef486 # shrinks to p = OptionParams { spot: 10.0, strike: 14.688006717047, rate: 0.015223212473448763, dividend: 0.0, vol: 0.09347689781524388, expiry: 1.2444290304029406 }, k = Call, seed = 15960987680872028225
