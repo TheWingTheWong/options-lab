@@ -12,6 +12,7 @@ pub mod iv;
 pub mod math;
 pub mod monte_carlo;
 pub mod parity;
+pub mod smile;
 pub mod solver;
 pub mod types;
 
