@@ -1,5 +1,7 @@
 # options-lab
 
+[![ci](https://github.com/TheWingTheWong/options-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/TheWingTheWong/options-lab/actions/workflows/ci.yml)
+
 European and American option pricing in Rust, as a library and a CLI.
 Black-Scholes-Merton with a continuous dividend yield, all first- and
 second-order Greeks, an implied-volatility solver that stays accurate in
