@@ -166,6 +166,14 @@ pub(crate) fn greeks_unchecked(kind: OptionType, p: &OptionParams) -> Greeks {
     }
 }
 
+/// Vega alone (identical for calls and puts). Used by the implied-vol solver.
+pub(crate) fn vega_unchecked(p: &OptionParams) -> f64 {
+    match d1_d2(p) {
+        Some(D1D2 { d1, .. }) => p.spot * p.dividend_discount() * norm_pdf(d1) * p.expiry.sqrt(),
+        None => 0.0,
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

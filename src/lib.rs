@@ -7,6 +7,7 @@
 
 pub mod bsm;
 pub mod error;
+pub mod iv;
 pub mod math;
 pub mod parity;
 pub mod solver;
