@@ -19,7 +19,7 @@ pub struct ParityArgs {
     pub tol: f64,
 }
 
-pub fn run(args: &ParityArgs) -> options_lab::Result<String> {
+pub fn run(args: &ParityArgs) -> super::CliResult {
     let p = args.market.params(0.0);
     let chk = parity::check(args.call, args.put, &p, args.tol)?;
     let q = parity::implied_dividend(args.call, args.put, &p.with_dividend(0.0))?;

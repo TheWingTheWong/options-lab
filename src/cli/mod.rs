@@ -4,10 +4,14 @@
 pub mod iv;
 pub mod parity;
 pub mod price;
+pub mod smile;
 pub mod table;
 
 use clap::Args;
 use options_lab::{DAYS_PER_YEAR, OptionParams, OptionType};
+
+/// What every subcommand returns: a report to print, or an error message.
+pub type CliResult = Result<String, Box<dyn std::error::Error>>;
 
 /// Market inputs shared by the single-option subcommands.
 #[derive(Args, Debug, Clone)]

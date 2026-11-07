@@ -1,6 +1,6 @@
 //! Volatility smile construction from a quoted option chain.
 //!
-//! Pipeline: [`parse_chain`] → [`build_smile`].
+//! Pipeline: [`parse_chain`] → [`build_smile`] → [`render_chart`].
 //!
 //! For every strike the builder solves the implied vol of the mid price.
 //! By default it keeps the out-of-the-money side only (puts below the
@@ -11,9 +11,11 @@
 //! a mis-specified rate or dividend yield.
 
 mod chain;
+mod chart;
 mod fit;
 
 pub use chain::{Chain, ChainMeta, Quote, parse_chain};
+pub use chart::{ChartOptions, render_chart};
 pub use fit::{QuadraticFit, fit_quadratic};
 
 use crate::bsm;

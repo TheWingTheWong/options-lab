@@ -17,7 +17,7 @@ pub struct IvArgs {
     pub kind: OptionType,
 }
 
-pub fn run(args: &IvArgs) -> options_lab::Result<String> {
+pub fn run(args: &IvArgs) -> super::CliResult {
     let p = args.market.params(0.0);
     let sol = iv::implied_vol(args.kind, args.price, &p)?;
     let solved = p.with_vol(sol.vol);

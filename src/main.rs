@@ -23,6 +23,8 @@ enum Command {
     Iv(cli::iv::IvArgs),
     /// Check a call/put pair against put-call parity.
     Parity(cli::parity::ParityArgs),
+    /// Fit and chart an implied-vol smile from a chain CSV.
+    Smile(cli::smile::SmileArgs),
 }
 
 fn main() -> ExitCode {
@@ -31,6 +33,7 @@ fn main() -> ExitCode {
         Command::Price(args) => cli::price::run(args),
         Command::Iv(args) => cli::iv::run(args),
         Command::Parity(args) => cli::parity::run(args),
+        Command::Smile(args) => cli::smile::run(args),
     };
     match result {
         Ok(report) => {

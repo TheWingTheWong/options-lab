@@ -87,3 +87,31 @@ fn expiry_is_required() {
     ]);
     assert!(!out.status.success());
 }
+
+#[test]
+fn smile_fits_the_bundled_chain() {
+    let chain = concat!(env!("CARGO_MANIFEST_DIR"), "/examples/chain.csv");
+    let out = stdout(&["smile", chain]);
+    // The generating smile is 26% ATM, skew -0.42, curvature 1.10.
+    assert!(out.contains("ATM vol 26.0"), "{out}");
+    assert!(out.contains("skew -0.41"), "{out}");
+    assert!(out.contains("0 outside the bid-ask"), "{out}");
+    assert!(out.contains("(zero bid)"), "{out}");
+    assert!(out.contains("implied vol %"), "{out}");
+}
+
+#[test]
+fn smile_flag_overrides_file_metadata() {
+    let chain = concat!(env!("CARGO_MANIFEST_DIR"), "/examples/chain.csv");
+    // A wrong dividend yield shifts the forward and breaks parity.
+    let out = stdout(&["smile", chain, "--div", "0.05", "--no-chart"]);
+    assert!(!out.contains("0 outside the bid-ask"), "{out}");
+    assert!(!out.contains("implied vol %"));
+}
+
+#[test]
+fn smile_reports_missing_file() {
+    let out = run(&["smile", "does-not-exist.csv"]);
+    assert!(!out.status.success());
+    assert!(String::from_utf8_lossy(&out.stderr).contains("cannot read"));
+}

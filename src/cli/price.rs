@@ -31,7 +31,7 @@ pub struct PriceArgs {
     pub bsm_only: bool,
 }
 
-pub fn run(args: &PriceArgs) -> options_lab::Result<String> {
+pub fn run(args: &PriceArgs) -> super::CliResult {
     let p = args.market.params(args.vol);
     let kind = args.kind;
     let price = bsm::price(kind, &p)?;
