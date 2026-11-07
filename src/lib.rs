@@ -5,4 +5,9 @@
 //! exercise, variance-reduced Monte Carlo, and volatility smile fitting.
 #![warn(missing_docs)]
 
+pub mod error;
 pub mod math;
+pub mod types;
+
+pub use error::{Error, Result};
+pub use types::{DAYS_PER_YEAR, ExerciseStyle, OptionParams, OptionType};
