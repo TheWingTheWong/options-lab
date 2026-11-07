@@ -1,0 +1,32 @@
+[package]
+name = "options-lab"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Options pricing library and CLI: Black-Scholes-Merton, Greeks, implied vol, CRR trees, Monte Carlo and volatility smiles"
+license = "MIT"
+readme = "README.md"
+keywords = ["options", "black-scholes", "finance", "quant", "volatility"]
+categories = ["finance", "mathematics", "command-line-utilities"]
+
+[lib]
+name = "options_lab"
+path = "src/lib.rs"
+
+[[bin]]
+name = "options-lab"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6", features = ["derive"] }
+rand = "0.8"
+rand_chacha = "0.3"
+rand_distr = "0.4"
+
+[dev-dependencies]
+criterion = "0.8"
+proptest = "1.12"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
