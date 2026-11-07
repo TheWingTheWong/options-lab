@@ -30,3 +30,7 @@ proptest = "1.12"
 [profile.release]
 codegen-units = 1
 lto = "thin"
+
+[[bench]]
+name = "pricing"
+harness = false
