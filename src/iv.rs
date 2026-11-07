@@ -308,6 +308,11 @@ mod tests {
                             sol.iterations,
                             sol.method
                         );
+                        assert_eq!(
+                            sol.method,
+                            IvMethod::Newton,
+                            "{kind} K={strike} T={expiry} σ={vol}"
+                        );
                         max_iter = max_iter.max(sol.iterations);
                         total_iter += sol.iterations;
                         solved += 1;
