@@ -5,6 +5,7 @@
 //! exercise, variance-reduced Monte Carlo, and volatility smile fitting.
 #![warn(missing_docs)]
 
+pub mod bsm;
 pub mod error;
 pub mod math;
 pub mod types;
