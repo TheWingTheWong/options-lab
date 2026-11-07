@@ -10,6 +10,7 @@ pub mod bsm;
 pub mod error;
 pub mod iv;
 pub mod math;
+pub mod monte_carlo;
 pub mod parity;
 pub mod solver;
 pub mod types;
